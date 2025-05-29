@@ -121,5 +121,4 @@ def calcular_frequencias_observadas(texto_apenas_letras):
 
 
 IC_ESPERADO_PORTUGUES = sum(p**2 for p in frequencia_portugues.values())
-IC_ALEATORIO = 1 / 26
 IC_ESPERADO_INGLES = sum(p**2 for p in frequencia_ingles.values())

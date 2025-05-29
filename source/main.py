@@ -45,8 +45,8 @@ def decifrar(chave, texto_cifrado):
     return "".join(texto_original)
 
 
-print(criptografar(input("  chave: "), input("  texto: ")))  # cifra
-print(decifrar(input("  chave: "), input("  texto: ")))  # decifra
+print("CIFRADO: " + criptografar(input("  chave: "), input("  texto: ")))  # apresentação
+print("ORIGINAL: " + decifrar(input("  chave: "), input("  cifrado: ")))  
 
 input('Continuar para a parte II?')
 
@@ -122,7 +122,7 @@ def atacar_arquivo(
     tamanho_chave_estimado = frequencia.encontrar_tamanho_chave(
         texto_cifrado_para_analise,
         tamanho_min_chave = 1,
-        tamanho_max_chave = 50,  # mudar com a suspeita da chave
+        tamanho_max_chave = 25,  # mudar com a suspeita da chave
         idioma_alvo=idioma_alvo,
     )
 
@@ -136,7 +136,7 @@ def atacar_arquivo(
     print(f"CHAVE RECUPERADA (estimada): '{chave_recuperada}'")
 
     if chave_original_para_teste:
-        if chave_recuperada.upper() == chave_original_para_teste.upper():
+        if chave_recuperada[0:len(chave_original_para_teste)] == chave_original_para_teste.upper():
             print(
                 f"SUCESSO NA CHAVE! Chave recuperada corresponde à chave original de teste ('{chave_original_para_teste}')."
             )
@@ -176,13 +176,13 @@ def atacar_arquivo(
     print("--- fim ---")
 
 
-# testes, mexer aqui
-
+# rodar parte 2#
 PASTA_BASE_PROJETO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PASTA_TEXTOS = os.path.join(PASTA_BASE_PROJETO, "textos")
 
 
-CHAVE_PT_TESTE = "segredo"  # Escolha uma chave
+# pt.txt
+CHAVE_PT_TESTE = "Oboloeumamentira"  #  chave
 ARQUIVO_PT_ORIGINAL = os.path.join(PASTA_TEXTOS, "pt.txt")
 
 atacar_arquivo(
@@ -191,7 +191,7 @@ atacar_arquivo(
 
 
 #  en.txt
-CHAVE_EN_TESTE = "HGFBSMNBKDJVBSJKDHFSDJDA"  # Escolha uma chave
+CHAVE_EN_TESTE = "Thecakeisacompletelylie"  #  chave
 ARQUIVO_EN_ORIGINAL = os.path.join(PASTA_TEXTOS, "en.txt")
 
 
@@ -200,7 +200,12 @@ atacar_arquivo(
 )
 
 
-print("\n--- ataque fim ---")
+print("\n---fim---")
+
+
+
+
+
 
 
 """
