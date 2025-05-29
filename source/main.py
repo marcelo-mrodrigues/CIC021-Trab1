@@ -1,6 +1,5 @@
 from funcoes import *
 import frequencia
-import argparse
 import os
 
 
@@ -49,6 +48,7 @@ def decifrar(chave, texto_cifrado):
 print(criptografar(input("  chave: "), input("  texto: ")))  # cifra
 print(decifrar(input("  chave: "), input("  texto: ")))  # decifra
 
+input('Continuar para a parte II?')
 
 def atacar_arquivo(
     caminho_arquivo_cifrado: str,
@@ -121,8 +121,8 @@ def atacar_arquivo(
 
     tamanho_chave_estimado = frequencia.encontrar_tamanho_chave(
         texto_cifrado_para_analise,
-        tamanho_min_chave=1,
-        tamanho_max_chave=20,  # mudar com a suspeita da chave
+        tamanho_min_chave = 1,
+        tamanho_max_chave = 50,  # mudar com a suspeita da chave
         idioma_alvo=idioma_alvo,
     )
 
@@ -191,7 +191,7 @@ atacar_arquivo(
 
 
 #  en.txt
-CHAVE_EN_TESTE = "CAKE"  # Escolha uma chave
+CHAVE_EN_TESTE = "HGFBSMNBKDJVBSJKDHFSDJDA"  # Escolha uma chave
 ARQUIVO_EN_ORIGINAL = os.path.join(PASTA_TEXTOS, "en.txt")
 
 

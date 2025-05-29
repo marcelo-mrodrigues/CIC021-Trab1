@@ -1,7 +1,7 @@
 from unidecode import unidecode
 
 ALFABETO = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-CARACTERES_PERMITIDOS = " .,"
+CARACTERES_PERMITIDOS = " .,'"
 
 
 def normalizar_txt(texto):
